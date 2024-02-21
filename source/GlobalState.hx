@@ -11,4 +11,9 @@ class GlobalState extends FlxBasic
 	{
 		super();
 	}
+
+	override public function update(elapsed:Float):Void
+	{
+		super.update(elapsed);
+	}
 }

@@ -10,11 +10,14 @@ class MenuState extends FlxState
 	var textArray:Array<FlxText>;
 	var el:Float;
 
+	var globalState:GlobalState;
+
 	override public function create()
 	{
+		globalState = new GlobalState();
 		super.create();
 
-		FlxG.plugins.addPlugin(new GlobalState());
+		FlxG.plugins.addPlugin(globalState);
 
 		var text:String = "Yet Another Survivor Game";
 		textArray = splitText(text);
@@ -90,16 +93,15 @@ class MenuState extends FlxState
 			A, B, X, Y, START, BACK, LEFT_SHOULDER, RIGHT_SHOULDER, LEFT_TRIGGER, RIGHT_TRIGGER
 		]))
 		{
-			FlxG.plugins.get(GlobalState).isUsingController = true;
-			FlxG.plugins.get(GlobalState).controllerId = FlxG.gamepads.lastActive.id;
-
-			FlxG.log.add("Starting game");
+			globalState.isUsingController = true;
+			globalState.controllerId = FlxG.gamepads.lastActive.id;
+			FlxG.switchState(new PlayState());
 		}
 
 		if (FlxG.keys.anyJustPressed(generateAllKeys()))
 		{
-			FlxG.plugins.get(GlobalState).isUsingController = false;
-			FlxG.log.add("Starting game");
+			globalState.isUsingController = false;
+			FlxG.switchState(new PlayState());
 		}
 	}
 
