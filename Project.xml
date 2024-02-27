@@ -4,7 +4,7 @@
 
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="8bitSurvivor" file="8bitSurvivor" main="Main" version="0.0.1" company="HaxeFlixel" />
+	<app title="Yet Another Survivors Game" file="8bitSurvivors" main="Main" version="0.0.1" company="HaxeFlixel" />
 
 	<!--The flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf into a html file
 		or you can set the actual size of your file manually at "FlxPreloaderBase-onUpdate-bytesTotal"-->
@@ -81,4 +81,5 @@
 	<!-- _________________________________ Custom _______________________________ -->
 
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
+	<template path="templates/index.html.template" rename="index.html" if="html5" />
 </project>

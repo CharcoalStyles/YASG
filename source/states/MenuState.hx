@@ -19,7 +19,7 @@ class MenuState extends FlxState
 
 		FlxG.plugins.addPlugin(globalState);
 
-		var text:String = "Yet Another Survivor Game";
+		var text:String = "Yet Another Survivors Game";
 		textArray = splitText(text);
 
 		// Add each FlxText object to the state
