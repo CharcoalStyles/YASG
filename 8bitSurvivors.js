@@ -3677,7 +3677,7 @@ ManifestResources.init = function(config) {
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
 	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Fsounds%2Fsounds-go-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R7R6tgoR0y25:assets%2Fdata%2Fhero.jsonR2i3039R3R4R5R8R6tgoR0y36:assets%2Fdata%2Fsample-large-map.csvR2i6048R3R4R5R9R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R10R6tgoR0y31:assets%2Fimages%2Fhero.asepriteR2i2452R3y6:BINARYR5R11R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R13R6tgoR0y31:assets%2Fimages%2FPunk_idle.pngR2i1434R3y5:IMAGER5R14R6tgoR0y26:assets%2Fimages%2Fhero.pngR2i1382R3R15R5R16R6tgoR2i8220R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3y9:pathGroupaR18y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R17R5y28:flixel%2Fsounds%2Fflixel.mp3R19aR21y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i33629R3y5:SOUNDR5R22R19aR21R22hgoR2i6840R3R23R5R20R19aR18R20hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R24R25y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i248R3R15R5R30R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i505R3R15R5R31R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Fsounds%2Fsounds-go-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R7R6tgoR0y25:assets%2Fdata%2Fhero.jsonR2i3039R3R4R5R8R6tgoR0y36:assets%2Fdata%2Fsample-large-map.csvR2i6048R3R4R5R9R6tgoR0y33:assets%2Fdata%2FKeyboardKeys.jsonR2i5081R3R4R5R10R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R11R6tgoR0y31:assets%2Fimages%2Fhero.asepriteR2i2452R3y6:BINARYR5R12R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R14R6tgoR0y34:assets%2Fimages%2FKeyboardKeys.pngR2i1825R3y5:IMAGER5R15R6tgoR0y31:assets%2Fimages%2FPunk_idle.pngR2i1434R3R16R5R17R6tgoR0y26:assets%2Fimages%2Fhero.pngR2i1382R3R16R5R18R6tgoR2i8220R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3y9:pathGroupaR20y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R19R5y28:flixel%2Fsounds%2Fflixel.mp3R21aR23y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i33629R3y5:SOUNDR5R24R21aR23R24hgoR2i6840R3R25R5R22R21aR20R22hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R26R27y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i248R3R16R5R32R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i505R3R16R5R33R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -70677,7 +70677,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 592864;
+	this.version = 636749;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -118204,6 +118204,44 @@ states_MenuState.prototype = $extend(flixel_FlxState.prototype,{
 		instructions.set_alignment("center");
 		this.add(instructions);
 		this.el = 180;
+		var x = flixel_FlxG.width / 3;
+		var y = flixel_FlxG.height / 2;
+		if(y == null) {
+			y = 0;
+		}
+		if(x == null) {
+			x = 0;
+		}
+		var moveGuideAnchor = new flixel_math_FlxBasePoint(x,y);
+		flixel_FlxG.log.advanced("moveGuideAnchor: " + moveGuideAnchor.x + ", " + moveGuideAnchor.y,flixel_system_debug_log_LogStyle.NORMAL);
+		var moveGuide = new flixel_text_FlxText(moveGuideAnchor.x - 128,moveGuideAnchor.y - 64,256,"Move with:");
+		moveGuide.set_size(24);
+		moveGuide.set_alignment("center");
+		moveGuide.set_borderStyle(flixel_text_FlxTextBorderStyle.OUTLINE);
+		this.add(moveGuide);
+		this.add(new ui_Keys(moveGuideAnchor.x - 18.,moveGuideAnchor.y,"w"));
+		this.add(new ui_Keys(moveGuideAnchor.x - 54.,moveGuideAnchor.y + 33,"a"));
+		this.add(new ui_Keys(moveGuideAnchor.x - 18.,moveGuideAnchor.y + 33,"s"));
+		this.add(new ui_Keys(moveGuideAnchor.x + 18.,moveGuideAnchor.y + 33,"d"));
+		var x = flixel_FlxG.width / 3 * 2;
+		var y = flixel_FlxG.height / 2;
+		if(y == null) {
+			y = 0;
+		}
+		if(x == null) {
+			x = 0;
+		}
+		var shootGuideAnchor = new flixel_math_FlxBasePoint(x,y);
+		flixel_FlxG.log.advanced("shootGuideAnchor: " + shootGuideAnchor.x + ", " + shootGuideAnchor.y,flixel_system_debug_log_LogStyle.NORMAL);
+		var moveGuide = new flixel_text_FlxText(shootGuideAnchor.x - 128,shootGuideAnchor.y - 64,256,"Shoot with:");
+		moveGuide.set_size(24);
+		moveGuide.set_alignment("center");
+		moveGuide.set_borderStyle(flixel_text_FlxTextBorderStyle.OUTLINE);
+		this.add(moveGuide);
+		this.add(new ui_Keys(shootGuideAnchor.x - 18.,shootGuideAnchor.y,"Up"));
+		this.add(new ui_Keys(shootGuideAnchor.x - 54.,shootGuideAnchor.y + 33,"Left"));
+		this.add(new ui_Keys(shootGuideAnchor.x - 18.,shootGuideAnchor.y + 33,"Down"));
+		this.add(new ui_Keys(shootGuideAnchor.x + 18.,shootGuideAnchor.y + 33,"Right"));
 	}
 	,splitText: function(text) {
 		var characters = text.split("");
@@ -118361,6 +118399,21 @@ states_PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		},flixel_FlxObject.separate);
 	}
 	,__class__: states_PlayState
+});
+var ui_Keys = function(X,Y,key) {
+	flixel_FlxSprite.call(this,X,Y);
+	var data = "assets/data/KeyboardKeys.json";
+	data = flixel_system_FlxJsonAsset.getData(data);
+	this.set_frames(flixel_graphics_frames_FlxAtlasFrames.fromTexturePackerJson("assets/images/KeyboardKeys.png",data,true));
+	flixel_graphics_FlxAsepriteUtil.addByIndexHelper(this.animation,data,null);
+	this.animation.play(key);
+	flixel_FlxG.log.advanced(this.animation.getAnimationList().toString(),flixel_system_debug_log_LogStyle.NORMAL);
+};
+$hxClasses["ui.Keys"] = ui_Keys;
+ui_Keys.__name__ = "ui.Keys";
+ui_Keys.__super__ = flixel_FlxSprite;
+ui_Keys.prototype = $extend(flixel_FlxSprite.prototype,{
+	__class__: ui_Keys
 });
 function $getIterator(o) { if( o instanceof Array ) return new haxe_iterators_ArrayIterator(o); else return o.iterator(); }
 function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $global.$haxeUID++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = m.bind(o); o.hx__closures__[m.__id__] = f; } return f; }
@@ -121937,6 +121990,8 @@ openfl_utils__$internal_TouchData.__pool = new lime_utils_ObjectPool(function() 
 },function(data) {
 	data.reset();
 });
+ui_Keys.W = 36;
+ui_Keys.H = 33;
 ApplicationMain.main();
 })(typeof exports != "undefined" ? exports : typeof window != "undefined" ? window : typeof self != "undefined" ? self : this, typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);
 
