@@ -24,7 +24,6 @@ class Enemy extends FlxSprite
 
 	override public function hurt(damage:Float)
 	{
-		FlxG.log.add('Enemy hurt for $damage');
 		var label = new FlxText(x, y, 100, Std.string(damage));
 		label.health = 1;
 		label.velocity.y = -50;

@@ -58,7 +58,6 @@ class FlxCstyLogo extends FlxState
 			for (sy in 0...13)
 			{
 				var c:Int = sprite.pixels.getPixel(sx, sy);
-				FlxG.log.add("sx: " + sx + " sy: " + sy + " c: " + c);
 				if (c == 0)
 				{
 					cstyLogoPixels.push(new FlxPoint(sx, sy));
@@ -66,8 +65,6 @@ class FlxCstyLogo extends FlxState
 				}
 			}
 		};
-
-		FlxG.log.add("cstyLogoPixels: " + cstyLogoPixels.length);
 
 		FlxG.random.shuffle(cstyLogoPixels);
 	}

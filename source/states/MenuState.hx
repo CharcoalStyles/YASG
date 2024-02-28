@@ -5,6 +5,7 @@ import flixel.FlxState;
 import flixel.math.FlxPoint;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import ui.Gamepad;
 import ui.Keys;
 
 class MenuState extends FlxState
@@ -38,30 +39,36 @@ class MenuState extends FlxState
 		el = 180;
 
 		var moveGuideAnchor:FlxPoint = new FlxPoint(FlxG.width / 3, FlxG.height / 2);
-		FlxG.log.add("moveGuideAnchor: " + moveGuideAnchor.x + ", " + moveGuideAnchor.y);
 
 		var moveGuide:FlxText = new FlxText(moveGuideAnchor.x - 128, moveGuideAnchor.y - 64, 256, "Move with:");
 		moveGuide.size = 24;
 		moveGuide.alignment = "center";
 		moveGuide.borderStyle = FlxTextBorderStyle.OUTLINE;
 		add(moveGuide);
-		add(new Keys(moveGuideAnchor.x - (36 / 2), moveGuideAnchor.y, "w"));
-		add(new Keys(moveGuideAnchor.x - (36 / 2 * 3), moveGuideAnchor.y + 33, "a"));
-		add(new Keys(moveGuideAnchor.x - (36 / 2), moveGuideAnchor.y + 33, "s"));
-		add(new Keys(moveGuideAnchor.x + (36 / 2), moveGuideAnchor.y + 33, "d"));
+		add(Keys.createWASD(moveGuideAnchor.x, moveGuideAnchor.y));
+		add(new Gamepad(moveGuideAnchor.x - Gamepad.W * 1.25, moveGuideAnchor.y + 96, "stick"));
+		add(new Gamepad(moveGuideAnchor.x + Gamepad.W * 1.25, moveGuideAnchor.y + 96, "dpad"));
+		add(orText(moveGuideAnchor.x, moveGuideAnchor.y + 104));
 
 		var shootGuideAnchor:FlxPoint = new FlxPoint(FlxG.width / 3 * 2, FlxG.height / 2);
-		FlxG.log.add("shootGuideAnchor: " + shootGuideAnchor.x + ", " + shootGuideAnchor.y);
-
 		var moveGuide:FlxText = new FlxText(shootGuideAnchor.x - 128, shootGuideAnchor.y - 64, 256, "Shoot with:");
 		moveGuide.size = 24;
 		moveGuide.alignment = "center";
 		moveGuide.borderStyle = FlxTextBorderStyle.OUTLINE;
 		add(moveGuide);
-		add(new Keys(shootGuideAnchor.x - (36 / 2), shootGuideAnchor.y, "Up"));
-		add(new Keys(shootGuideAnchor.x - (36 / 2 * 3), shootGuideAnchor.y + 33, "Left"));
-		add(new Keys(shootGuideAnchor.x - (36 / 2), shootGuideAnchor.y + 33, "Down"));
-		add(new Keys(shootGuideAnchor.x + (36 / 2), shootGuideAnchor.y + 33, "Right"));
+		add(Keys.createArrows(shootGuideAnchor.x, shootGuideAnchor.y));
+		add(new Gamepad(shootGuideAnchor.x - Gamepad.W * 1.25, shootGuideAnchor.y + 96, "stick"));
+		add(Gamepad.createFaceButtons(shootGuideAnchor.x + Gamepad.W * 1.25, shootGuideAnchor.y + 96));
+		add(orText(shootGuideAnchor.x, shootGuideAnchor.y + 104));
+	}
+
+	function orText(x:Float, y:Float):FlxText
+	{
+		var t:FlxText = new FlxText(x, y, 0, "OR");
+		t.size = 16;
+		t.alignment = "center";
+		t.borderStyle = FlxTextBorderStyle.OUTLINE;
+		return t;
 	}
 
 	function splitText(text:String):Array<FlxText>
