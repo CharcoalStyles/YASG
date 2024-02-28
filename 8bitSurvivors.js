@@ -3677,7 +3677,7 @@ ManifestResources.init = function(config) {
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
 	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Fsounds%2Fsounds-go-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R7R6tgoR0y25:assets%2Fdata%2Fhero.jsonR2i3039R3R4R5R8R6tgoR0y36:assets%2Fdata%2Fsample-large-map.csvR2i6048R3R4R5R9R6tgoR0y33:assets%2Fdata%2FKeyboardKeys.jsonR2i5081R3R4R5R10R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R11R6tgoR0y31:assets%2Fimages%2Fhero.asepriteR2i2452R3y6:BINARYR5R12R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R14R6tgoR0y34:assets%2Fimages%2FKeyboardKeys.pngR2i1825R3y5:IMAGER5R15R6tgoR0y31:assets%2Fimages%2FPunk_idle.pngR2i1434R3R16R5R17R6tgoR0y26:assets%2Fimages%2Fhero.pngR2i1382R3R16R5R18R6tgoR0y26:assets%2Fimages%2Fcsty.pngR2i271R3R16R5R19R6tgoR2i8220R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3y9:pathGroupaR21y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R20R5y28:flixel%2Fsounds%2Fflixel.mp3R22aR24y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i33629R3y5:SOUNDR5R25R22aR24R25hgoR2i6840R3R26R5R23R22aR21R23hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R27R28y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i248R3R16R5R33R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i505R3R16R5R34R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Fsounds%2Fsounds-go-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R7R6tgoR0y25:assets%2Fdata%2Fhero.jsonR2i3039R3R4R5R8R6tgoR0y27:assets%2Fdata%2FJoypad.jsonR2i4652R3R4R5R9R6tgoR0y36:assets%2Fdata%2Fsample-large-map.csvR2i6048R3R4R5R10R6tgoR0y33:assets%2Fdata%2FKeyboardKeys.jsonR2i5081R3R4R5R11R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R12R6tgoR0y31:assets%2Fimages%2Fhero.asepriteR2i2452R3y6:BINARYR5R13R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R15R6tgoR0y34:assets%2Fimages%2FKeyboardKeys.pngR2i1825R3y5:IMAGER5R16R6tgoR0y31:assets%2Fimages%2FPunk_idle.pngR2i1434R3R17R5R18R6tgoR0y26:assets%2Fimages%2Fhero.pngR2i1382R3R17R5R19R6tgoR0y26:assets%2Fimages%2Fcsty.pngR2i271R3R17R5R20R6tgoR0y28:assets%2Fimages%2FJoypad.pngR2i2703R3R17R5R21R6tgoR2i8220R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3y9:pathGroupaR23y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R22R5y28:flixel%2Fsounds%2Fflixel.mp3R24aR26y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i33629R3y5:SOUNDR5R27R24aR26R27hgoR2i6840R3R28R5R25R24aR23R25hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R29R30y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i248R3R17R5R35R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i505R3R17R5R36R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -7868,7 +7868,6 @@ entities_Enemy.__name__ = "entities.Enemy";
 entities_Enemy.__super__ = flixel_FlxSprite;
 entities_Enemy.prototype = $extend(flixel_FlxSprite.prototype,{
 	hurt: function(damage) {
-		flixel_FlxG.log.advanced("Enemy hurt for " + damage,flixel_system_debug_log_LogStyle.NORMAL);
 		var label = new flixel_text_FlxText(this.x,this.y,100,damage == null ? "null" : "" + damage);
 		label.health = 1;
 		label.velocity.set_y(-50);
@@ -70689,7 +70688,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 83319;
+	this.version = 819614;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -118224,7 +118223,6 @@ states_FlxCstyLogo.prototype = $extend(flixel_FlxState.prototype,{
 			while(_g1 < 13) {
 				var sy = _g1++;
 				var c = this.sprite.get_pixels().getPixel(sx,sy);
-				flixel_FlxG.log.advanced("sx: " + sx + " sy: " + sy + " c: " + c,flixel_system_debug_log_LogStyle.NORMAL);
 				if(c == 0) {
 					var x = sx;
 					var y = sy;
@@ -118239,7 +118237,6 @@ states_FlxCstyLogo.prototype = $extend(flixel_FlxState.prototype,{
 				}
 			}
 		}
-		flixel_FlxG.log.advanced("cstyLogoPixels: " + this.cstyLogoPixels.length,flixel_system_debug_log_LogStyle.NORMAL);
 		flixel_FlxG.random.shuffle_flixel_math_FlxPoint(this.cstyLogoPixels);
 	}
 	,update: function(elapsed) {
@@ -118329,16 +118326,15 @@ states_MenuState.prototype = $extend(flixel_FlxState.prototype,{
 			x = 0;
 		}
 		var moveGuideAnchor = new flixel_math_FlxBasePoint(x,y);
-		flixel_FlxG.log.advanced("moveGuideAnchor: " + moveGuideAnchor.x + ", " + moveGuideAnchor.y,flixel_system_debug_log_LogStyle.NORMAL);
 		var moveGuide = new flixel_text_FlxText(moveGuideAnchor.x - 128,moveGuideAnchor.y - 64,256,"Move with:");
 		moveGuide.set_size(24);
 		moveGuide.set_alignment("center");
 		moveGuide.set_borderStyle(flixel_text_FlxTextBorderStyle.OUTLINE);
 		this.add(moveGuide);
-		this.add(new ui_Keys(moveGuideAnchor.x - 18.,moveGuideAnchor.y,"w"));
-		this.add(new ui_Keys(moveGuideAnchor.x - 54.,moveGuideAnchor.y + 33,"a"));
-		this.add(new ui_Keys(moveGuideAnchor.x - 18.,moveGuideAnchor.y + 33,"s"));
-		this.add(new ui_Keys(moveGuideAnchor.x + 18.,moveGuideAnchor.y + 33,"d"));
+		this.add(ui_Keys.createWASD(moveGuideAnchor.x,moveGuideAnchor.y));
+		this.add(new ui_Gamepad(moveGuideAnchor.x - ui_Gamepad.W * 1.25,moveGuideAnchor.y + 96,"stick"));
+		this.add(new ui_Gamepad(moveGuideAnchor.x + ui_Gamepad.W * 1.25,moveGuideAnchor.y + 96,"dpad"));
+		this.add(this.orText(moveGuideAnchor.x,moveGuideAnchor.y + 104));
 		var x = flixel_FlxG.width / 3 * 2;
 		var y = flixel_FlxG.height / 2;
 		if(y == null) {
@@ -118348,16 +118344,22 @@ states_MenuState.prototype = $extend(flixel_FlxState.prototype,{
 			x = 0;
 		}
 		var shootGuideAnchor = new flixel_math_FlxBasePoint(x,y);
-		flixel_FlxG.log.advanced("shootGuideAnchor: " + shootGuideAnchor.x + ", " + shootGuideAnchor.y,flixel_system_debug_log_LogStyle.NORMAL);
 		var moveGuide = new flixel_text_FlxText(shootGuideAnchor.x - 128,shootGuideAnchor.y - 64,256,"Shoot with:");
 		moveGuide.set_size(24);
 		moveGuide.set_alignment("center");
 		moveGuide.set_borderStyle(flixel_text_FlxTextBorderStyle.OUTLINE);
 		this.add(moveGuide);
-		this.add(new ui_Keys(shootGuideAnchor.x - 18.,shootGuideAnchor.y,"Up"));
-		this.add(new ui_Keys(shootGuideAnchor.x - 54.,shootGuideAnchor.y + 33,"Left"));
-		this.add(new ui_Keys(shootGuideAnchor.x - 18.,shootGuideAnchor.y + 33,"Down"));
-		this.add(new ui_Keys(shootGuideAnchor.x + 18.,shootGuideAnchor.y + 33,"Right"));
+		this.add(ui_Keys.createArrows(shootGuideAnchor.x,shootGuideAnchor.y));
+		this.add(new ui_Gamepad(shootGuideAnchor.x - ui_Gamepad.W * 1.25,shootGuideAnchor.y + 96,"stick"));
+		this.add(ui_Gamepad.createFaceButtons(shootGuideAnchor.x + ui_Gamepad.W * 1.25,shootGuideAnchor.y + 96));
+		this.add(this.orText(shootGuideAnchor.x,shootGuideAnchor.y + 104));
+	}
+	,orText: function(x,y) {
+		var t = new flixel_text_FlxText(x,y,0,"OR");
+		t.set_size(16);
+		t.set_alignment("center");
+		t.set_borderStyle(flixel_text_FlxTextBorderStyle.OUTLINE);
+		return t;
 	}
 	,splitText: function(text) {
 		var characters = text.split("");
@@ -118516,6 +118518,28 @@ states_PlayState.prototype = $extend(flixel_FlxState.prototype,{
 	}
 	,__class__: states_PlayState
 });
+var ui_Gamepad = function(X,Y,key) {
+	flixel_FlxSprite.call(this,X,Y);
+	var data = "assets/data/Joypad.json";
+	data = flixel_system_FlxJsonAsset.getData(data);
+	this.set_frames(flixel_graphics_frames_FlxAtlasFrames.fromTexturePackerJson("assets/images/Joypad.png",data,true));
+	flixel_graphics_FlxAsepriteUtil.addByIndexHelper(this.animation,data,null);
+	this.animation.play(key);
+};
+$hxClasses["ui.Gamepad"] = ui_Gamepad;
+ui_Gamepad.__name__ = "ui.Gamepad";
+ui_Gamepad.createFaceButtons = function(X,Y) {
+	var keys = new flixel_group_FlxTypedGroup();
+	keys.add(new ui_Gamepad(X,Y - ui_Gamepad.H / 2.5,"button"));
+	keys.add(new ui_Gamepad(X,Y + ui_Gamepad.H / 2.5,"button"));
+	keys.add(new ui_Gamepad(X - ui_Gamepad.W / 2.5,Y,"button"));
+	keys.add(new ui_Gamepad(X + ui_Gamepad.W / 2.5,Y,"button"));
+	return keys;
+};
+ui_Gamepad.__super__ = flixel_FlxSprite;
+ui_Gamepad.prototype = $extend(flixel_FlxSprite.prototype,{
+	__class__: ui_Gamepad
+});
 var ui_Keys = function(X,Y,key) {
 	flixel_FlxSprite.call(this,X,Y);
 	var data = "assets/data/KeyboardKeys.json";
@@ -118523,10 +118547,25 @@ var ui_Keys = function(X,Y,key) {
 	this.set_frames(flixel_graphics_frames_FlxAtlasFrames.fromTexturePackerJson("assets/images/KeyboardKeys.png",data,true));
 	flixel_graphics_FlxAsepriteUtil.addByIndexHelper(this.animation,data,null);
 	this.animation.play(key);
-	flixel_FlxG.log.advanced(this.animation.getAnimationList().toString(),flixel_system_debug_log_LogStyle.NORMAL);
 };
 $hxClasses["ui.Keys"] = ui_Keys;
 ui_Keys.__name__ = "ui.Keys";
+ui_Keys.createWASD = function(X,Y) {
+	var keys = new flixel_group_FlxTypedGroup();
+	keys.add(new ui_Keys(X,Y,"w"));
+	keys.add(new ui_Keys(X - ui_Keys.W,Y + ui_Keys.H,"a"));
+	keys.add(new ui_Keys(X,Y + ui_Keys.H,"s"));
+	keys.add(new ui_Keys(X + ui_Keys.W,Y + ui_Keys.H,"d"));
+	return keys;
+};
+ui_Keys.createArrows = function(X,Y) {
+	var keys = new flixel_group_FlxTypedGroup();
+	keys.add(new ui_Keys(X,Y,"Up"));
+	keys.add(new ui_Keys(X - ui_Keys.W,Y + ui_Keys.H,"Left"));
+	keys.add(new ui_Keys(X,Y + ui_Keys.H,"Down"));
+	keys.add(new ui_Keys(X + ui_Keys.W,Y + ui_Keys.H,"Right"));
+	return keys;
+};
 ui_Keys.__super__ = flixel_FlxSprite;
 ui_Keys.prototype = $extend(flixel_FlxSprite.prototype,{
 	__class__: ui_Keys
@@ -122106,6 +122145,8 @@ openfl_utils__$internal_TouchData.__pool = new lime_utils_ObjectPool(function() 
 },function(data) {
 	data.reset();
 });
+ui_Gamepad.W = 36;
+ui_Gamepad.H = 36;
 ui_Keys.W = 36;
 ui_Keys.H = 33;
 ApplicationMain.main();
