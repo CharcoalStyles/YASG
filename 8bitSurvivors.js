@@ -3374,7 +3374,7 @@ openfl_display_Sprite.prototype = $extend(openfl_display_DisplayObjectContainer.
 });
 var Main = function() {
 	openfl_display_Sprite.call(this);
-	this.addChild(new flixel_FlxGame(0,0,flixel_util_typeLimit_InitialState.fromType(states_MenuState)));
+	this.addChild(new flixel_FlxGame(0,0,flixel_util_typeLimit_InitialState.fromType(states_FlxCstyLogo)));
 };
 $hxClasses["Main"] = Main;
 Main.__name__ = "Main";
@@ -3677,7 +3677,7 @@ ManifestResources.init = function(config) {
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
 	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Fsounds%2Fsounds-go-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R7R6tgoR0y25:assets%2Fdata%2Fhero.jsonR2i3039R3R4R5R8R6tgoR0y36:assets%2Fdata%2Fsample-large-map.csvR2i6048R3R4R5R9R6tgoR0y33:assets%2Fdata%2FKeyboardKeys.jsonR2i5081R3R4R5R10R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R11R6tgoR0y31:assets%2Fimages%2Fhero.asepriteR2i2452R3y6:BINARYR5R12R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R14R6tgoR0y34:assets%2Fimages%2FKeyboardKeys.pngR2i1825R3y5:IMAGER5R15R6tgoR0y31:assets%2Fimages%2FPunk_idle.pngR2i1434R3R16R5R17R6tgoR0y26:assets%2Fimages%2Fhero.pngR2i1382R3R16R5R18R6tgoR2i8220R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3y9:pathGroupaR20y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R19R5y28:flixel%2Fsounds%2Fflixel.mp3R21aR23y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i33629R3y5:SOUNDR5R24R21aR23R24hgoR2i6840R3R25R5R22R21aR20R22hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R26R27y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i248R3R16R5R32R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i505R3R16R5R33R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Fsounds%2Fsounds-go-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R7R6tgoR0y25:assets%2Fdata%2Fhero.jsonR2i3039R3R4R5R8R6tgoR0y36:assets%2Fdata%2Fsample-large-map.csvR2i6048R3R4R5R9R6tgoR0y33:assets%2Fdata%2FKeyboardKeys.jsonR2i5081R3R4R5R10R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R11R6tgoR0y31:assets%2Fimages%2Fhero.asepriteR2i2452R3y6:BINARYR5R12R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R14R6tgoR0y34:assets%2Fimages%2FKeyboardKeys.pngR2i1825R3y5:IMAGER5R15R6tgoR0y31:assets%2Fimages%2FPunk_idle.pngR2i1434R3R16R5R17R6tgoR0y26:assets%2Fimages%2Fhero.pngR2i1382R3R16R5R18R6tgoR0y26:assets%2Fimages%2Fcsty.pngR2i271R3R16R5R19R6tgoR2i8220R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3y9:pathGroupaR21y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R20R5y28:flixel%2Fsounds%2Fflixel.mp3R22aR24y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i33629R3y5:SOUNDR5R25R22aR24R25hgoR2i6840R3R26R5R23R22aR21R23hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R27R28y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i248R3R16R5R33R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i505R3R16R5R34R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -11839,7 +11839,19 @@ flixel_math_FlxRandom.rangeBound = function(Value) {
 	return (lowerBound > 2147483646 ? 2147483646 : lowerBound) | 0;
 };
 flixel_math_FlxRandom.prototype = {
-	getObject_flixel_group_FlxTypedGroup_T: function(Objects,WeightsArray,StartIndex,EndIndex) {
+	shuffle_flixel_math_FlxPoint: function(array) {
+		var maxValidIndex = array.length - 1;
+		var _g = 0;
+		var _g1 = maxValidIndex;
+		while(_g < _g1) {
+			var i = _g++;
+			var j = this.int(i,maxValidIndex);
+			var tmp = array[i];
+			array[i] = array[j];
+			array[j] = tmp;
+		}
+	}
+	,getObject_flixel_group_FlxTypedGroup_T: function(Objects,WeightsArray,StartIndex,EndIndex) {
 		if(StartIndex == null) {
 			StartIndex = 0;
 		}
@@ -70677,7 +70689,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 636749;
+	this.version = 83319;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -118180,6 +118192,110 @@ openfl_utils__$internal_TouchData.prototype = {
 	}
 	,__class__: openfl_utils__$internal_TouchData
 };
+var states_FlxCstyLogo = function() {
+	this.logoFinished = false;
+	this.timer = 0.1;
+	this.timerLength = 0.1;
+	flixel_FlxState.call(this);
+	this.nextState = new states_MenuState();
+};
+$hxClasses["states.FlxCstyLogo"] = states_FlxCstyLogo;
+states_FlxCstyLogo.__name__ = "states.FlxCstyLogo";
+states_FlxCstyLogo.__super__ = flixel_FlxState;
+states_FlxCstyLogo.prototype = $extend(flixel_FlxState.prototype,{
+	create: function() {
+		flixel_FlxState.prototype.create.call(this);
+		flixel_FlxG.mouse.set_visible(false);
+		this.bkgrnd = new flixel_FlxSprite();
+		this.bkgrnd.makeGraphic(flixel_FlxG.width,flixel_FlxG.height);
+		this.add(this.bkgrnd);
+		this.sprite = new flixel_FlxSprite(0,0,"assets/images/csty.png");
+		this.sprite.setGraphicSize(flixel_FlxG.width / 1.5 | 0,0);
+		this.sprite.updateHitbox();
+		this.sprite.set_x((flixel_FlxG.width - this.sprite.get_width()) / 2);
+		this.sprite.set_y((flixel_FlxG.height - this.sprite.get_height()) / 2.5);
+		this.add(this.sprite);
+		this.cstyLogoPixels = [];
+		this.updatingPixels = [];
+		var _g = 0;
+		while(_g < 33) {
+			var sx = _g++;
+			var _g1 = 0;
+			while(_g1 < 13) {
+				var sy = _g1++;
+				var c = this.sprite.get_pixels().getPixel(sx,sy);
+				flixel_FlxG.log.advanced("sx: " + sx + " sy: " + sy + " c: " + c,flixel_system_debug_log_LogStyle.NORMAL);
+				if(c == 0) {
+					var x = sx;
+					var y = sy;
+					if(y == null) {
+						y = 0;
+					}
+					if(x == null) {
+						x = 0;
+					}
+					this.cstyLogoPixels.push(new flixel_math_FlxBasePoint(x,y));
+					this.sprite.get_pixels().setPixel(sx,sy,-1);
+				}
+			}
+		}
+		flixel_FlxG.log.advanced("cstyLogoPixels: " + this.cstyLogoPixels.length,flixel_system_debug_log_LogStyle.NORMAL);
+		flixel_FlxG.random.shuffle_flixel_math_FlxPoint(this.cstyLogoPixels);
+	}
+	,update: function(elapsed) {
+		flixel_FlxState.prototype.update.call(this,elapsed);
+		this.timer -= elapsed;
+		if(this.timer <= 0) {
+			this.timer = this.timerLength;
+			this.timerLength *= 0.97;
+			var point = this.cstyLogoPixels.pop();
+			if(point != null) {
+				this.updatingPixels.push({ x : point.x | 0, y : point.y | 0, timer : this.timerLength * 5});
+			}
+			var point = this.cstyLogoPixels.pop();
+			if(point != null) {
+				this.updatingPixels.push({ x : point.x | 0, y : point.y | 0, timer : this.timerLength * 5});
+			}
+		}
+		var _g = 0;
+		var _g1 = this.updatingPixels;
+		while(_g < _g1.length) {
+			var up = _g1[_g];
+			++_g;
+			up.timer -= elapsed;
+			var col = flixel_FlxG.random.color();
+			if(up.timer <= 0) {
+				HxOverrides.remove(this.updatingPixels,up);
+				col = -16777216;
+			}
+			this.sprite.get_pixels().setPixel(up.x,up.y,col);
+		}
+		if(this.cstyLogoPixels.length == 0 && this.updatingPixels.length == 0 && !this.logoFinished) {
+			this.logoFinished = true;
+			this.timer = 1;
+		}
+		if(this.logoFinished && this.timer > 0) {
+			this.timer -= elapsed;
+			if(this.timer <= 0) {
+				flixel_FlxG.camera.fade(-16777216,0.75,false,$bind(this,this.onFade));
+			}
+		}
+	}
+	,onFade: function() {
+		var nextState = flixel_util_typeLimit_NextState.fromState(this.nextState);
+		var stateOnCall = flixel_FlxG.game._state;
+		if(!((nextState) instanceof flixel_FlxState) || flixel_FlxG.canSwitchTo(nextState)) {
+			flixel_FlxG.game._state.startOutro(function() {
+				if(flixel_FlxG.game._state == stateOnCall) {
+					flixel_FlxG.game._nextState = nextState;
+				} else {
+					flixel_FlxG.log.advanced("`onOutroComplete` was called after the state was switched. This will be ignored",flixel_system_debug_log_LogStyle.WARNING,true);
+				}
+			});
+		}
+	}
+	,__class__: states_FlxCstyLogo
+});
 var states_MenuState = function() {
 	flixel_FlxState.call(this);
 };
