@@ -54,6 +54,7 @@ class Player extends FlxSprite
 		{
 			this.velocity.x += 100;
 		}
+
 		this.velocity.y = 0;
 		if (controls.moveUp)
 		{
@@ -106,6 +107,30 @@ class Player extends FlxSprite
 
 				shootTimer = shootDelay;
 			}
+		}
+
+		if (this.velocity.x != 0 || this.velocity.y != 0)
+		{
+			var shootLeft = controls.shootLeft;
+			var shootRight = controls.shootRight;
+			var runLeft = this.velocity.x < 0;
+			var runRight = this.velocity.x > 0;
+
+			this.flipX = runLeft;
+
+			if ((runLeft && shootRight) || (runRight && shootLeft))
+			{
+				this.flipX = !this.flipX;
+				this.animation.play("run", false, true);
+			}
+			else
+			{
+				this.animation.play("run");
+			}
+		}
+		else
+		{
+			this.animation.play("idle");
 		}
 	}
 
