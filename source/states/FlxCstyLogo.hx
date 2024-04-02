@@ -78,12 +78,12 @@ class FlxCstyLogo extends FlxState
 		if (timer <= 0)
 		{
 			timer = timerLength;
-			timerLength *= 0.97;
-			for (i in 0...2)
+			timerLength *= 0.96;
+			for (i in 0...3)
 			{
 				var point = cstyLogoPixels.pop();
 				if (point != null)
-					updatingPixels.push({x: Std.int(point.x), y: Std.int(point.y), timer: timerLength * 5});
+					updatingPixels.push({x: Std.int(point.x), y: Std.int(point.y), timer: timerLength * 8});
 			}
 		}
 

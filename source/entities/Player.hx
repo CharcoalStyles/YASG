@@ -22,6 +22,8 @@ class Player extends FlxSprite
 	var globalState:GlobalState;
 	var animList:Array<FlxAnimation>;
 
+	var speed = 100;
+
 	var shootTimer:Float = 0;
 	var shootDelay:Float = 0.15;
 
@@ -37,6 +39,10 @@ class Player extends FlxSprite
 		FlxAsepriteUtil.loadAseAtlasAndTagsByIndex(this, "assets/images/hero.png", "assets/data/hero.json");
 		this.animation.play("idle");
 		this.scale.set(1.5, 1.5);
+
+		this.setSize(14, 14);
+		this.centerOffsets();
+		this.offset.add(0, 6);
 	}
 
 	override public function update(elapsed:Float):Void
@@ -48,21 +54,28 @@ class Player extends FlxSprite
 		this.velocity.x = 0;
 		if (controls.moveLeft)
 		{
-			this.velocity.x -= 100;
+			this.velocity.x -= speed;
 		}
 		if (controls.moveRight)
 		{
-			this.velocity.x += 100;
+			this.velocity.x += speed;
 		}
 
 		this.velocity.y = 0;
 		if (controls.moveUp)
 		{
-			this.velocity.y -= 100;
+			this.velocity.y -= speed;
 		}
 		if (controls.moveDown)
 		{
-			this.velocity.y += 100;
+			this.velocity.y += speed;
+		}
+
+		if (this.velocity.x != 0 && this.velocity.y != 0)
+		{
+			this.velocity.normalize();
+			this.velocity.scale(speed);
+			FlxG.log.add("position: " + this.x + ", " + this.y);
 		}
 
 		shootTimer -= elapsed;
@@ -101,8 +114,8 @@ class Player extends FlxSprite
 
 				var bullet = globalState.bulletsPool.get();
 				bullet.reset(bulletXpos, bulletYpos);
-				bullet.velocity.x = bulletX * 200;
-				bullet.velocity.y = bulletY * 200;
+				bullet.velocity.x = bulletX * 400;
+				bullet.velocity.y = bulletY * 400;
 				onAddBullet(bullet);
 
 				shootTimer = shootDelay;
