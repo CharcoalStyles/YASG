@@ -21,6 +21,7 @@ jobs:
           haxelib install openfl 
           haxelib install flixel
           haxelib install sfxr
+          haxelib install flixel-addons
 
       # Runs a set of commands using the runners shell
       - name: Build the HTML5 version
