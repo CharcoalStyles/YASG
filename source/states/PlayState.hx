@@ -1,6 +1,7 @@
 package states;
 
 import entities.Bullet;
+import entities.DamageLabel;
 import entities.Enemy;
 import entities.Player;
 import flixel.FlxCamera;
@@ -8,6 +9,7 @@ import flixel.FlxG;
 import flixel.FlxState;
 import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxGroup;
+import flixel.text.FlxText;
 
 class PlayState extends FlxState
 {
@@ -15,6 +17,7 @@ class PlayState extends FlxState
 	var player:Player;
 	var activeBullets:FlxTypedGroup<Bullet>;
 	var activeEnemies:FlxTypedGroup<Enemy>;
+	var damageLabels:FlxTypedGroup<DamageLabel>;
 
 	override public function create()
 	{
@@ -30,13 +33,16 @@ class PlayState extends FlxState
 
 		activeBullets = new FlxTypedGroup<Bullet>();
 		activeEnemies = new FlxTypedGroup<Enemy>();
+		damageLabels = new FlxTypedGroup<DamageLabel>();
 		add(activeBullets);
 		add(activeEnemies);
+		// add(damageLabels);
 
 		player = new Player((b:Bullet) ->
 		{
-			activeBullets.add(b);
+			activeBullets.add(b); // TODO: look at, make sure we're pooling properly
 		});
+
 		globalState.player = player;
 
 		// put player in the middle of the screen
@@ -47,7 +53,7 @@ class PlayState extends FlxState
 
 		FlxG.camera.follow(player, FlxCameraFollowStyle.LOCKON);
 
-		// add enemies
+		// add enemies + labels
 		for (i in 0...10)
 		{
 			var enemy = new Enemy(0, 0);
@@ -61,15 +67,25 @@ class PlayState extends FlxState
 	{
 		super.update(elapsed);
 
+		for (dl in damageLabels.members)
+		{
+			if (dl.active)
+			{
+				dl.update(elapsed);
+			}
+		}
+
 		FlxG.overlap(activeBullets, activeEnemies, (b:Bullet, e:Enemy) ->
 		{
 			e.hurt(b.damage);
+
+			damageLabels.recycle(DamageLabel).set(e.x, e.y, b.damage);
+
+			FlxG.log.add("DamageLabel count (l/a): " + damageLabels.countLiving() + " / " + damageLabels.members.length);
+			FlxG.log.add("DamageLabel max: " + damageLabels.maxSize);
+
 			b.kill();
-		}, (b:Bullet, e:Enemy) ->
-			{
-				FlxG.log.add("overlap callback");
-				return b.active && e.active;
-			});
+		});
 
 		FlxG.overlap(player, activeEnemies, (p:Player, e:Enemy) ->
 		{
@@ -80,5 +96,11 @@ class PlayState extends FlxState
 				e.doPushback();
 			}
 		});
+	}
+
+	override public function draw()
+	{
+		super.draw();
+		damageLabels.draw();
 	}
 }

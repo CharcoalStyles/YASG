@@ -8,7 +8,6 @@ import flixel.text.FlxText;
 class Enemy extends FlxSprite
 {
 	var globalState:GlobalState;
-	var labels:FlxTypedGroup<FlxText>;
 	var isInPushback:Bool;
 	var lastMoveX:Bool;
 	var speed = 90;
@@ -25,21 +24,9 @@ class Enemy extends FlxSprite
 		height = 18;
 		makeGraphic(Std.int(width), Std.int(height), 0xff93240b);
 
-		labels = new FlxTypedGroup();
-
 		this.immovable = true;
 		this.isInPushback = false;
 		this.lastMoveX = true;
-	}
-
-	override public function hurt(damage:Float)
-	{
-		super.hurt(damage);
-		var label = new FlxText(x, y, 100, Std.string(damage));
-		label.health = 1;
-		label.velocity.y = -50;
-		label.velocity.x = FlxG.random.float(-20, 20);
-		labels.add(label);
 	}
 
 	public function doPushback()
@@ -69,24 +56,7 @@ class Enemy extends FlxSprite
 
 	override public function update(elapsed:Float):Void
 	{
-		for (label in labels.members)
-		{
-			if (label != null)
-			{
-				label.health -= elapsed;
-				label.alpha = label.health;
-				label.x += label.velocity.x * elapsed;
-				label.y += label.velocity.y * elapsed;
-
-				if (label.health <= 0)
-				{
-					labels.remove(label, true);
-					label.kill();
-				}
-			}
-		}
 		super.update(elapsed);
-		labels.update(elapsed);
 
 		if (isInPushback)
 		{
@@ -124,11 +94,5 @@ class Enemy extends FlxSprite
 			velocity.y = dy * speed * (lastMoveX ? 1.45 : 1);
 			lastMoveX = false;
 		}
-	}
-
-	override public function draw()
-	{
-		super.draw();
-		labels.draw();
 	}
 }

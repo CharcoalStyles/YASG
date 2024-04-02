@@ -75,7 +75,6 @@ class Player extends FlxSprite
 		{
 			this.velocity.normalize();
 			this.velocity.scale(speed);
-			FlxG.log.add("position: " + this.x + ", " + this.y);
 		}
 
 		shootTimer -= elapsed;
