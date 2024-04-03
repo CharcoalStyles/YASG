@@ -3,10 +3,12 @@ package states;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.math.FlxPoint;
+import flixel.math.FlxRect;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import ui.Gamepad;
 import ui.Keys;
+import ui.Mouse;
 
 class MenuState extends FlxState
 {
@@ -31,35 +33,37 @@ class MenuState extends FlxState
 			add(textArray[i]);
 		}
 
-		var instructions:FlxText = new FlxText(0, FlxG.height - 32, FlxG.width, "Press any key to start");
+		var instructions:FlxText = new FlxText(0, FlxG.height - 32, FlxG.width, "Press any key or button to start");
 		instructions.size = 16;
 		instructions.alignment = "center";
 		add(instructions);
 
 		el = 180;
 
-		var moveGuideAnchor:FlxPoint = new FlxPoint(FlxG.width / 3, FlxG.height / 2);
+		var moveGuideAnchor:FlxPoint = new FlxPoint(FlxG.width / 2 - 96, FlxG.height / 2);
 
-		var moveGuide:FlxText = new FlxText(moveGuideAnchor.x - 128, moveGuideAnchor.y - 64, 256, "Move with:");
+		var moveGuide:FlxText = new FlxText(moveGuideAnchor.x - 128, moveGuideAnchor.y - 64, 256, "Move");
 		moveGuide.size = 24;
 		moveGuide.alignment = "center";
 		moveGuide.borderStyle = FlxTextBorderStyle.OUTLINE;
 		add(moveGuide);
-		add(Keys.createWASD(moveGuideAnchor.x, moveGuideAnchor.y));
-		add(new Gamepad(moveGuideAnchor.x - Gamepad.W * 1.25, moveGuideAnchor.y + 96, "stick"));
-		add(new Gamepad(moveGuideAnchor.x + Gamepad.W * 1.25, moveGuideAnchor.y + 96, "dpad"));
-		add(orText(moveGuideAnchor.x, moveGuideAnchor.y + 104));
+		add(Keys.createWASD(moveGuideAnchor.x - 16, moveGuideAnchor.y));
+		var gamePadM = new Gamepad(moveGuideAnchor.x - Gamepad.W * 0.5, moveGuideAnchor.y + 96, "stick-left");
+		gamePadM.setAngleSpeeds(new FlxPoint(90, 140));
+		add(gamePadM);
 
-		var shootGuideAnchor:FlxPoint = new FlxPoint(FlxG.width / 3 * 2, FlxG.height / 2);
-		var moveGuide:FlxText = new FlxText(shootGuideAnchor.x - 128, shootGuideAnchor.y - 64, 256, "Shoot with:");
+		var shootGuideAnchor:FlxPoint = new FlxPoint(FlxG.width / 2 + 96, FlxG.height / 2);
+		var moveGuide:FlxText = new FlxText(shootGuideAnchor.x - 128, shootGuideAnchor.y - 64, 256, "Shoot");
 		moveGuide.size = 24;
 		moveGuide.alignment = "center";
 		moveGuide.borderStyle = FlxTextBorderStyle.OUTLINE;
 		add(moveGuide);
-		add(Keys.createArrows(shootGuideAnchor.x, shootGuideAnchor.y));
-		add(new Gamepad(shootGuideAnchor.x - Gamepad.W * 1.25, shootGuideAnchor.y + 96, "stick"));
-		add(Gamepad.createFaceButtons(shootGuideAnchor.x + Gamepad.W * 1.25, shootGuideAnchor.y + 96));
-		add(orText(shootGuideAnchor.x, shootGuideAnchor.y + 104));
+		var mouse = new Mouse(shootGuideAnchor.x, shootGuideAnchor.y, "LongLeftClick");
+		mouse.setMovement(new FlxRect(shootGuideAnchor.x - 64, shootGuideAnchor.y - 32, 128, 64), 30, 70);
+		add(mouse);
+		var gamePadS = new Gamepad(shootGuideAnchor.x - Gamepad.W * 0.5, shootGuideAnchor.y + 96, "stick-right");
+		gamePadS.setAngleSpeeds(new FlxPoint(90, 140));
+		add(gamePadS);
 	}
 
 	function orText(x:Float, y:Float):FlxText
@@ -119,7 +123,7 @@ class MenuState extends FlxState
 			textArray[i].y = 64 + Math.sin(el * 2.3 + i * 0.5) * 15;
 			textArray[i].angle = Math.sin(el * 1.7 + i * 0.5) * 10;
 			var col = FlxColor.fromRGB(Std.int(Math.sin(el * 1.3 + i * 0.5) * 128 + 128), Std.int(Math.sin(el * 1.5 + i * 0.5) * 128 + 128),
-				Std.int(Math.sin(el * 1.7 + i * 0.5) * 128 + 128));
+				256 - Std.int(Math.sin(el * 1.3 + i * 0.5) * 128 + 128));
 			textArray[i].color = col;
 			textArray[i].borderColor = col.getInverted();
 		}

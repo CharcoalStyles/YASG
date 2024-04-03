@@ -9,7 +9,7 @@ import flixel.FlxG;
 import flixel.FlxState;
 import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxGroup;
-import flixel.text.FlxText;
+import states.PauseScreen.PauseState;
 
 class PlayState extends FlxState
 {
@@ -23,9 +23,14 @@ class PlayState extends FlxState
 	{
 		super.create();
 
+		FlxG.autoPause = false;
+
 		FlxG.worldBounds.set(Math.NEGATIVE_INFINITY, Math.NEGATIVE_INFINITY, Math.POSITIVE_INFINITY, Math.POSITIVE_INFINITY);
 
 		globalState = FlxG.plugins.get(GlobalState);
+
+		FlxG.mouse.visible = !globalState.isUsingController;
+		FlxG.mouse.load("assets/images/crosshair_outline_small.png", 0.5);
 
 		// add background
 		var backdrop = new FlxBackdrop("assets/images/grassTile.png");
@@ -67,6 +72,11 @@ class PlayState extends FlxState
 	{
 		super.update(elapsed);
 
+		if (FlxG.keys.justPressed.ESCAPE || FlxG.keys.justPressed.P)
+		{
+			openSubState(new PauseState());
+		}
+
 		for (dl in damageLabels.members)
 		{
 			if (dl.active)
@@ -80,9 +90,6 @@ class PlayState extends FlxState
 			e.hurt(b.damage);
 
 			damageLabels.recycle(DamageLabel).set(e.x, e.y, b.damage);
-
-			FlxG.log.add("DamageLabel count (l/a): " + damageLabels.countLiving() + " / " + damageLabels.members.length);
-			FlxG.log.add("DamageLabel max: " + damageLabels.maxSize);
 
 			b.kill();
 		});
@@ -102,5 +109,10 @@ class PlayState extends FlxState
 	{
 		super.draw();
 		damageLabels.draw();
+	}
+
+	override function onFocusLost()
+	{
+		openSubState(new PauseState());
 	}
 }

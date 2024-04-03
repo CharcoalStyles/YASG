@@ -81,18 +81,6 @@ class Enemy extends FlxSprite
 			dy /= length;
 		}
 
-		if (Math.abs(dx) > Math.abs(dy))
-		{
-			velocity.x = dx * speed * (lastMoveX ? 1 : 1.45);
-			velocity.y = 0;
-
-			lastMoveX = true;
-		}
-		else
-		{
-			velocity.x = 0;
-			velocity.y = dy * speed * (lastMoveX ? 1.45 : 1);
-			lastMoveX = false;
-		}
+		velocity.set(dx * speed, dy * speed);
 	}
 }

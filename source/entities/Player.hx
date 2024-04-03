@@ -4,17 +4,13 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.animation.FlxAnimation;
 import flixel.graphics.FlxAsepriteUtil;
+import flixel.math.FlxPoint;
 
 typedef Controls =
 {
-	moveLeft:Bool,
-	moveRight:Bool,
-	moveUp:Bool,
-	moveDown:Bool,
-	shootLeft:Bool,
-	shootRight:Bool,
-	shootUp:Bool,
-	shootDown:Bool
+	move:FlxPoint,
+	shoot:FlxPoint,
+	isKeyboard:Bool,
 };
 
 class Player extends FlxSprite
@@ -28,6 +24,8 @@ class Player extends FlxSprite
 	var shootDelay:Float = 0.15;
 
 	var onAddBullet:Bullet->Void;
+
+	var lastControls:Controls;
 
 	public function new(onAddBullet:Bullet->Void)
 	{
@@ -51,70 +49,21 @@ class Player extends FlxSprite
 
 		var controls = handleControls();
 
-		this.velocity.x = 0;
-		if (controls.moveLeft)
-		{
-			this.velocity.x -= speed;
-		}
-		if (controls.moveRight)
-		{
-			this.velocity.x += speed;
-		}
-
-		this.velocity.y = 0;
-		if (controls.moveUp)
-		{
-			this.velocity.y -= speed;
-		}
-		if (controls.moveDown)
-		{
-			this.velocity.y += speed;
-		}
-
-		if (this.velocity.x != 0 && this.velocity.y != 0)
-		{
-			this.velocity.normalize();
-			this.velocity.scale(speed);
-		}
+		this.velocity = controls.move * speed;
 
 		shootTimer -= elapsed;
 
 		if (shootTimer <= 0)
 		{
-			var bulletX:Float = 0;
-			var bulletY:Float = 0;
-
-			if (controls.shootLeft)
+			if (controls.shoot.length > 0)
 			{
-				bulletX -= 1;
-			}
-			if (controls.shootRight)
-			{
-				bulletX += 1;
-			}
-			if (controls.shootUp)
-			{
-				bulletY -= 1;
-			}
-			if (controls.shootDown)
-			{
-				bulletY += 1;
-			}
-
-			if (bulletX != 0 || bulletY != 0)
-			{
-				// convert to unit vector
-				var length = Math.sqrt(bulletX * bulletX + bulletY * bulletY);
-				bulletX /= length;
-				bulletY /= length;
-
-				var bulletXpos = this.x + ((this.width + bulletX * 4) / 2);
-				var bulletYpos = this.y + ((this.height + bulletY * 4) / 2);
+				var bulletXpos = this.x + ((this.width + controls.shoot.x * 4) / 2);
+				var bulletYpos = this.y + ((this.height + controls.shoot.y * 4) / 2);
 
 				var bullet = globalState.bulletsPool.get();
 				bullet.reset(bulletXpos, bulletYpos);
-				bullet.velocity.x = bulletX * 400;
-				bullet.velocity.y = bulletY * 400;
+				bullet.velocity.x = controls.shoot.x * 400;
+				bullet.velocity.y = controls.shoot.y * 400;
 				onAddBullet(bullet);
 
 				shootTimer = shootDelay;
@@ -123,8 +72,8 @@ class Player extends FlxSprite
 
 		if (this.velocity.x != 0 || this.velocity.y != 0)
 		{
-			var shootLeft = controls.shootLeft;
-			var shootRight = controls.shootRight;
+			var shootLeft = controls.shoot.x < 0;
+			var shootRight = controls.shoot.y > 0;
 			var runLeft = this.velocity.x < 0;
 			var runRight = this.velocity.x > 0;
 
@@ -144,19 +93,16 @@ class Player extends FlxSprite
 		{
 			this.animation.play("idle");
 		}
+
+		lastControls = controls;
 	}
 
 	function handleControls():Controls
 	{
 		var controls:Controls = {
-			moveLeft: false,
-			moveRight: false,
-			moveUp: false,
-			moveDown: false,
-			shootLeft: false,
-			shootRight: false,
-			shootUp: false,
-			shootDown: false
+			move: FlxPoint.get(0, 0),
+			shoot: FlxPoint.get(0, 0),
+			isKeyboard: !globalState.isUsingController
 		};
 
 		if (globalState.isUsingController)
@@ -173,15 +119,41 @@ class Player extends FlxSprite
 
 	function getControlsFromKeyboard():Controls
 	{
+		var moveX = 0;
+		var moveY = 0;
+
+		if (FlxG.keys.pressed.A)
+		{
+			moveX = -1;
+		}
+		else if (FlxG.keys.pressed.D)
+		{
+			moveX = 1;
+		}
+
+		if (FlxG.keys.pressed.W)
+		{
+			moveY = -1;
+		}
+		else if (FlxG.keys.pressed.S)
+		{
+			moveY = 1;
+		}
+
+		var shootDir = FlxPoint.get(0, 0);
+
+		if (FlxG.mouse.pressed)
+		{
+			var mousePos = FlxPoint.get(FlxG.mouse.x + 8, FlxG.mouse.y + 8);
+			// get the player centre
+			var playerPos = FlxPoint.get(this.x + this.width / 2, this.y + this.height / 2);
+			shootDir = mousePos.subtract(playerPos.x, playerPos.y);
+		}
+
 		return {
-			moveLeft: FlxG.keys.pressed.A,
-			moveRight: FlxG.keys.pressed.D,
-			moveUp: FlxG.keys.pressed.W,
-			moveDown: FlxG.keys.pressed.S,
-			shootLeft: FlxG.keys.pressed.LEFT,
-			shootRight: FlxG.keys.pressed.RIGHT,
-			shootUp: FlxG.keys.pressed.UP,
-			shootDown: FlxG.keys.pressed.DOWN,
+			move: FlxPoint.get(moveX, moveY).normalize(),
+			shoot: shootDir.normalize(),
+			isKeyboard: true
 		};
 	}
 
@@ -192,14 +164,9 @@ class Player extends FlxSprite
 		{
 			// pause
 			return {
-				moveLeft: false,
-				moveRight: false,
-				moveUp: false,
-				moveDown: false,
-				shootLeft: false,
-				shootRight: false,
-				shootUp: false,
-				shootDown: false
+				move: FlxPoint.get(0, 0),
+				shoot: FlxPoint.get(0, 0),
+				isKeyboard: false
 			};
 		}
 
@@ -207,15 +174,9 @@ class Player extends FlxSprite
 		var shootAxis = controller.getAnalogAxes(RIGHT_ANALOG_STICK);
 
 		return {
-			moveLeft: controller.anyPressed([DPAD_LEFT]) || moveAxis.x < -0.5,
-			moveRight: controller.anyPressed([DPAD_RIGHT]) || moveAxis.x > 0.5,
-			moveUp: controller.anyPressed([DPAD_UP]) || moveAxis.y < -0.5,
-			moveDown: controller.anyPressed([DPAD_DOWN]) || moveAxis.y > 0.5,
-
-			shootLeft: controller.anyPressed([X]) || shootAxis.x < -0.5,
-			shootRight: controller.anyPressed([B]) || shootAxis.x > 0.5,
-			shootUp: controller.anyPressed([Y]) || shootAxis.y < -0.5,
-			shootDown: controller.anyPressed([A]) || shootAxis.y > 0.5,
+			move: FlxPoint.get(moveAxis.x, moveAxis.y).normalize(),
+			shoot: FlxPoint.get(shootAxis.x, shootAxis.y).normalize(),
+			isKeyboard: false
 		};
 	}
 }

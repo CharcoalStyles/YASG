@@ -12,6 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Install Haxelib libraries
       - uses: actions/checkout@v3
       - uses: krdlab/setup-haxe@v1
         with:
