@@ -12,12 +12,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Haxelib libraries
       - uses: actions/checkout@v3
       - uses: krdlab/setup-haxe@v1
         with:
           haxe-version: 4.3.3
-      - run: |
+        
+      - name: Install Haxelib libraries
+        run: |
           haxelib install lime 
           haxelib install openfl 
           haxelib install flixel
