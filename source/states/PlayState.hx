@@ -9,6 +9,7 @@ import flixel.FlxG;
 import flixel.FlxState;
 import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxGroup;
+import flixel.math.FlxPoint;
 import states.PauseScreen.PauseState;
 
 class PlayState extends FlxState
@@ -57,6 +58,7 @@ class PlayState extends FlxState
 		add(player);
 
 		FlxG.camera.follow(player, FlxCameraFollowStyle.LOCKON);
+		FlxG.camera.targetOffset.set(0, -3.5);
 
 		// add enemies + labels
 		for (i in 0...10)
@@ -74,7 +76,7 @@ class PlayState extends FlxState
 
 		if (FlxG.keys.justPressed.ESCAPE || FlxG.keys.justPressed.P)
 		{
-			openSubState(new PauseState());
+			openPauseMenu();
 		}
 
 		for (dl in damageLabels.members)
@@ -111,8 +113,19 @@ class PlayState extends FlxState
 		damageLabels.draw();
 	}
 
+	function openPauseMenu()
+	{
+		var subState = new PauseState();
+		var screenOrigin = new FlxPoint(FlxG.camera.scroll.x, FlxG.camera.scroll.y);
+		FlxG.log.add("screenOrigin: " + screenOrigin.x + ", " + screenOrigin.y);
+
+		subState.setParentScreen(screenOrigin.x, screenOrigin.y);
+		subState.create();
+		openSubState(subState);
+	}
+
 	override function onFocusLost()
 	{
-		openSubState(new PauseState());
+		openPauseMenu();
 	}
 }

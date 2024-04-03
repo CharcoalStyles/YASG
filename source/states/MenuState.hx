@@ -21,6 +21,7 @@ class MenuState extends FlxState
 	{
 		globalState = new GlobalState();
 		super.create();
+		FlxG.mouse.visible = false;
 
 		FlxG.plugins.addPlugin(globalState);
 

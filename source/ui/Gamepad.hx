@@ -47,7 +47,6 @@ class Gamepad extends FlxSprite
 
 				// set a new speed
 				this.angleSpeed = this.minMaxSpeed.x + Math.random() * (this.minMaxSpeed.y - this.minMaxSpeed.x);
-				FlxG.log.add("New speed: " + this.angleSpeed);
 
 				// set the direction of the rotation to the new target angle
 				if (this.targetAngle < this.angle)
