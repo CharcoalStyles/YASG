@@ -71826,7 +71826,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 882689;
+	this.version = 264834;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -119442,6 +119442,14 @@ states_FlxCstyLogo.prototype = $extend(flixel_FlxState.prototype,{
 	,__class__: states_FlxCstyLogo
 });
 var states_MenuState = function() {
+	this.ac = 0;
+	this.xpNegOffset = 14;
+	this.xpNegDivisor = 2;
+	this.xpNegMult = 2;
+	this.xpNegStaticOffset = 40;
+	this.xpOffset = 25;
+	this.xpDivisor = 17;
+	this.xpStaticOffset = 3;
 	flixel_FlxState.call(this);
 };
 $hxClasses["states.MenuState"] = states_MenuState;
@@ -119461,10 +119469,14 @@ states_MenuState.prototype = $extend(flixel_FlxState.prototype,{
 			var i = _g++;
 			this.add(this.textArray[i]);
 		}
-		var instructions = new flixel_text_FlxText(0,flixel_FlxG.height - 32,flixel_FlxG.width,"Press any key or button to start");
+		var instructions = new flixel_text_FlxText(0,flixel_FlxG.height - 64,flixel_FlxG.width,"Press any key or button to start");
 		instructions.set_size(16);
 		instructions.set_alignment("center");
 		this.add(instructions);
+		var fullScrenInstruction = new flixel_text_FlxText(0,flixel_FlxG.height - 32,flixel_FlxG.width,"Press 'F' to toggle full screen");
+		fullScrenInstruction.set_size(16);
+		fullScrenInstruction.set_alignment("center");
+		this.add(fullScrenInstruction);
 		this.el = 180;
 		var x = flixel_FlxG.width / 2 - 96;
 		var y = flixel_FlxG.height / 2;
@@ -119531,17 +119543,20 @@ states_MenuState.prototype = $extend(flixel_FlxState.prototype,{
 	,splitText: function(text) {
 		var characters = text.split("");
 		var textArray = [];
+		var textArrayO = [];
 		var acculumX = 0;
 		var _g = 0;
 		var _g1 = characters.length;
 		while(_g < _g1) {
 			var i = _g++;
-			var n = characters[i] == "I";
-			var xpos = n ? 28 : 36;
-			var xpNeg = n ? 8 : 0;
-			var char = new flixel_text_FlxText(0,0,flixel_FlxG.width,characters[i]);
-			char.set_size(48);
-			char.set_alignment("center");
+			var iChar = characters[i] == "I" || characters[i] == "i";
+			var mChar = characters[i] == "M" || characters[i] == "m";
+			var spaceChar = characters[i] == " ";
+			var xposOld = iChar ? 30 : mChar ? 44 : 36;
+			var xpNegOld = iChar ? 6 : mChar ? -8 : 0;
+			var char = new flixel_text_FlxText(0,0,-1,characters[i],48);
+			var xpos = spaceChar ? 36 : (char.get_width() + this.xpStaticOffset) / this.xpDivisor + this.xpOffset;
+			var xpNeg = spaceChar ? 0 : (this.xpNegStaticOffset - char.get_width() * this.xpNegMult) / this.xpNegDivisor + this.xpNegOffset;
 			char.set_x(acculumX + xpos);
 			char.set_y(0);
 			char.set_borderColor(-1);
@@ -119551,12 +119566,13 @@ states_MenuState.prototype = $extend(flixel_FlxState.prototype,{
 			textArray.push(char);
 			acculumX += xpos - xpNeg;
 		}
+		var titleStart = (flixel_FlxG.width - acculumX) / 2;
 		var _g = 0;
 		var _g1 = textArray.length;
 		while(_g < _g1) {
 			var i = _g++;
 			var fh = textArray[i];
-			fh.set_x(fh.x - acculumX / 2);
+			fh.set_x(fh.x + titleStart);
 		}
 		return textArray;
 	}
@@ -119626,23 +119642,12 @@ states_MenuState.prototype = $extend(flixel_FlxState.prototype,{
 				});
 			}
 		}
-		if(flixel_FlxG.keys.checkKeyArrayState(this.generateAllKeys(),2)) {
-			this.globalState.isUsingController = false;
-			var nextState1 = flixel_util_typeLimit_NextState.fromState(new states_PlayState());
-			var stateOnCall1 = flixel_FlxG.game._state;
-			if(!((nextState1) instanceof flixel_FlxState) || flixel_FlxG.canSwitchTo(nextState1)) {
-				flixel_FlxG.game._state.startOutro(function() {
-					if(flixel_FlxG.game._state == stateOnCall1) {
-						flixel_FlxG.game._nextState = nextState1;
-					} else {
-						flixel_FlxG.log.advanced("`onOutroComplete` was called after the state was switched. This will be ignored",flixel_system_debug_log_LogStyle.WARNING,true);
-					}
-				});
-			}
+		if(flixel_FlxG.keys.checkKeyArrayState([70],2)) {
+			flixel_FlxG.set_fullscreen(!flixel_FlxG.get_fullscreen());
 		}
 	}
 	,generateAllKeys: function() {
-		return [65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,112,113,114,115,116,117,118,119,120,121,122,123,9,20,16,17,18,32,13,8,46,45,36,35,33,34,301];
+		return [65,66,67,68,69,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,112,113,114,115,116,117,118,119,120,121,122,123,9,20,16,17,18,32,13,8,46,45,36,35,33,34,301];
 	}
 	,__class__: states_MenuState
 });
