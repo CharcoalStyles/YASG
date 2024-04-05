@@ -165,11 +165,11 @@ class MenuState extends FlxState
 			FlxG.switchState(new PlayState());
 		}
 
-		// if (FlxG.keys.anyJustPressed(generateAllKeys()))
-		// {
-		// 	globalState.isUsingController = false;
-		// 	FlxG.switchState(new PlayState());
-		// }
+		if (FlxG.keys.anyJustPressed(generateAllKeys()))
+		{
+			globalState.isUsingController = false;
+			FlxG.switchState(new PlayState());
+		}
 
 		if (FlxG.keys.anyJustPressed([F]))
 		{
