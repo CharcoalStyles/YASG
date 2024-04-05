@@ -71826,7 +71826,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 264834;
+	this.version = 370954;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -119636,6 +119636,20 @@ states_MenuState.prototype = $extend(flixel_FlxState.prototype,{
 				flixel_FlxG.game._state.startOutro(function() {
 					if(flixel_FlxG.game._state == stateOnCall) {
 						flixel_FlxG.game._nextState = nextState;
+					} else {
+						flixel_FlxG.log.advanced("`onOutroComplete` was called after the state was switched. This will be ignored",flixel_system_debug_log_LogStyle.WARNING,true);
+					}
+				});
+			}
+		}
+		if(flixel_FlxG.keys.checkKeyArrayState(this.generateAllKeys(),2)) {
+			this.globalState.isUsingController = false;
+			var nextState1 = flixel_util_typeLimit_NextState.fromState(new states_PlayState());
+			var stateOnCall1 = flixel_FlxG.game._state;
+			if(!((nextState1) instanceof flixel_FlxState) || flixel_FlxG.canSwitchTo(nextState1)) {
+				flixel_FlxG.game._state.startOutro(function() {
+					if(flixel_FlxG.game._state == stateOnCall1) {
+						flixel_FlxG.game._nextState = nextState1;
 					} else {
 						flixel_FlxG.log.advanced("`onOutroComplete` was called after the state was switched. This will be ignored",flixel_system_debug_log_LogStyle.WARNING,true);
 					}
